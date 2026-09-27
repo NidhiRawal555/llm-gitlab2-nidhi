@@ -3,14 +3,11 @@
 from __future__ import annotations
 
 
-def load_config() -> dict:
-    """
-    Load configuration from environment variables.
+import os
 
-    Expected keys:
-    - LLM_PROVIDER
-    - OPENAI_API_KEY
-    - OPENAI_MODEL
-    """
-    # TODO: implement this function.
-    raise NotImplementedError("Implement load_config().")
+def load_config() -> dict:
+    return {
+        "LLM_PROVIDER": os.getenv("LLM_PROVIDER", "mock"),
+        "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY", ""),
+        "OPENAI_MODEL": os.getenv("OPENAI_MODEL", ""),
+    }
