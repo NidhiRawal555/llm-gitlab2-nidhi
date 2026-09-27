@@ -17,7 +17,7 @@ class OpenAIProvider(BaseProvider):
         """Generate a response using the OpenAI SDK."""
         # TODO: implement this method.
         try:
-            from openai import OpenAI
+            from openai import OpenAI, OpenAIError
 
             client = OpenAI(api_key=self.api_key)
             completion = client.chat.completions.create(
@@ -25,7 +25,7 @@ class OpenAIProvider(BaseProvider):
                 messages=[{"role": "user", "content": prompt}],
             )
             text = completion.choices[0].message.content or ""
-        except Exception:
+        except OpenAIError:
             raise RuntimeError("OpenAI provider request failed.") from None
 
         return LLMResponse(

@@ -29,7 +29,7 @@ def create_provider(config: dict):
     # TODO: implement this function.
     provider_name = config.get("LLM_PROVIDER", "mock")
     if not isinstance(provider_name, str):
-        raise ValueError("LLM_PROVIDER must be 'mock' or 'openai'.")
+        raise TypeError("LLM_PROVIDER must be a string.")
 
     provider_name = provider_name.strip().lower()
     if provider_name == "mock":

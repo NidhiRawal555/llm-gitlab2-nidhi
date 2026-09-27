@@ -1,9 +1,8 @@
 """Student-facing configuration helpers for Lab 02."""
 
 from __future__ import annotations
-
-
 import os
+
 
 def load_config() -> dict:
     return {
